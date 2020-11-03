@@ -15,6 +15,7 @@ function LaunchCard({ data }) {
               className={styles.img}
               src={details.links.mission_patch_small}
               alt={details.mission_name}
+              quality={50}
             />
           </figure>
           <p className={styles.name}>

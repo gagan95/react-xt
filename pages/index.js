@@ -10,6 +10,7 @@ export default function Home({ data }) {
         <html lang={"en"} />
         <title>Gagan XT assignment</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="Description" content="SpaceX Launch Programs."></meta>
       </Head>
 
       {/* Header Section */}
@@ -43,7 +44,7 @@ export async function getServerSideProps(context) {
   let val = Object.keys(context.query).map((key) => key + "=" + context.query[key]).join("&");
 
   // Calling Api 
-  const res = await fetch(`https://api.spacexdata.com/v3/launches?limit=100${val ? val : ""}`)
+  const res = await fetch(`https://api.spacexdata.com/v3/launches?limit=50${val ? val : ""}`)
   const data = await res.json()
   return {
     props: { data: data }, // will be passed to the page component as props
