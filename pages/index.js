@@ -7,6 +7,7 @@ export default function Home({ data }) {
   return (
     <div className={styles.container}>
       <Head>
+        <html lang={"en"} />
         <title>Gagan XT assignment</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>

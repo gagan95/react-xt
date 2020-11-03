@@ -1,6 +1,7 @@
 import React from "react";
 import DetailItem from "./DetailItem";
 import styles from "../styles/Card.module.css";
+import Image from "next/image";
 
 function LaunchCard({ data }) {
   let Items = <div></div>;
@@ -9,7 +10,8 @@ function LaunchCard({ data }) {
       return (
         <div key={details.flight_number} className={styles.card}>
           <figure className={styles.figure}>
-            <img
+            <Image
+              unsized
               className={styles.img}
               src={details.links.mission_patch_small}
               alt={details.mission_name}
