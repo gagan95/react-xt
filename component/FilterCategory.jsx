@@ -1,10 +1,20 @@
 import React from "react";
 import FilterBtn from "./FilterBtn";
 import styles from "../styles/Filter.module.css";
+import Router from "next/router";
+import { useRouter } from "next/router";
 
 function FilterCategory(props) {
+  const router = useRouter();
+
   const onFilterClick = (value) => {
-    props.onFilterApply(props.filerType, value);
+    let obj = {};
+    obj = router.query;
+    obj[props.filerType] = value;
+    Router.push({
+      pathname: "/",
+      query: obj,
+    });
   };
   const filterItems = props.filterValues.map((filter) => (
     <FilterBtn

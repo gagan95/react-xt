@@ -29,7 +29,7 @@ function Filter() {
       filterDisplayName={category.displayName}
     />
   ));
-  console.log(data);
+
   return (
     <div className={styles.filters}>
       <h2>Filters</h2>

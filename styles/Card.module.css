@@ -1,0 +1,81 @@
+.container {
+  display: grid;
+  grid-gap: 25px;
+}
+.noData {
+  text-align: center;
+  grid-column: 1/5;
+  font-size: 18px;
+  padding: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  font-weight: 500;
+}
+.name {
+  color: #474f98;
+  margin: 15px 0;
+  font-size: 22px;
+}
+
+.figure {
+  background: #f2f2f2;
+  text-align: center;
+  margin: 0;
+}
+.img {
+  width: 100%;
+  height: auto;
+  min-height: 150px;
+}
+
+.detail {
+  display: flex;
+  align-content: center;
+  margin-bottom: 12px;
+}
+.detail.list {
+  display: block;
+}
+.label {
+  font-size: 20px;
+  margin: 0;
+}
+
+.value {
+  color: #474f98;
+  margin-left: 5px;
+  font-size: 20px;
+  margin: 0;
+}
+
+@media screen and (min-width: 701px) {
+  .card {
+    padding: 20px;
+  }
+  .name {
+    font-size: 18px;
+  }
+
+  .label,
+  .value {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    grid-template-columns: repeat(4, calc(25% - 7.5px));
+    grid-gap: 10px;
+  }
+}
+
+@media screen and (min-width: 701px) and (max-width: 1023px) {
+  .container {
+    grid-template-columns: repeat(2, calc(50% - 5px));
+    grid-gap: 10px;
+  }
+}
