@@ -2,8 +2,8 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css';
 import Filter from './../component/Filter';
 import LaunchCard from './../component/LaunchCard';
+import axios from 'axios'
 export default function Home({ data }) {
-
   return (
     <div className={styles.container}>
       <Head>
@@ -44,8 +44,8 @@ export async function getServerSideProps(context) {
   let val = Object.keys(context.query).map((key) => key + "=" + context.query[key]).join("&");
 
   // Calling Api 
-  const res = await fetch(`https://api.spacexdata.com/v3/launches?limit=50${val ? val : ""}`)
-  const data = await res.json()
+  const res = await axios.get(`https://api.spacexdata.com/v3/launches?limit=100&${val ? val : ""}`)
+  const data = await res.data;
   return {
     props: { data: data }, // will be passed to the page component as props
   }

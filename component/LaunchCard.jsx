@@ -10,13 +10,17 @@ function LaunchCard({ data }) {
       return (
         <div key={details.flight_number} className={styles.card}>
           <figure className={styles.figure}>
-            <Image
-              unsized
-              className={styles.img}
-              src={details.links.mission_patch_small}
-              alt={details.mission_name}
-              quality={50}
-            />
+            {details.links.mission_patch_small ? (
+              <Image
+                unsized
+                className={styles.img}
+                src={details.links.mission_patch_small}
+                alt={details.mission_name}
+                quality={50}
+              />
+            ) : (
+              <p style={{ margin: "auto", padding: 10 }}>No Image </p>
+            )}
           </figure>
           <p className={styles.name}>
             {details.mission_name} #{details.flight_number}
@@ -28,7 +32,7 @@ function LaunchCard({ data }) {
             label="Successful Launch"
           />
           <DetailItem
-            value={details.landing_success}
+            value={details.rocket.first_stage.cores[0].land_success}
             label="Successful Landing"
           />
         </div>

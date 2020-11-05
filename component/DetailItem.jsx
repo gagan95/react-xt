@@ -16,7 +16,9 @@ const DetailItem = React.memo((props) => {
       <p className={styles.value}> NA </p>
     )
   ) : (
-    <p className={styles.value}>{props.value ? props.value + "" : " NA "}</p>
+    <p className={styles.value}>
+      {props.value == undefined ? " NA " : props.value + ""}
+    </p>
   );
 
   return (

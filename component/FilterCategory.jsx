@@ -6,21 +6,30 @@ import { useRouter } from "next/router";
 
 function FilterCategory(props) {
   const router = useRouter();
-
   const onFilterClick = (value) => {
     let obj = {};
     obj = router.query;
-    obj[props.filerType] = value;
-    Router.push({
-      pathname: "/",
-      query: obj,
-    });
+    if (obj[props.filerType] == value) {
+      delete obj[props.filerType];
+      Router.push({
+        pathname: "/",
+        query: obj,
+      });
+    } else {
+      obj[props.filerType] = value;
+
+      Router.push({
+        pathname: "/",
+        query: obj,
+      });
+    }
   };
   const filterItems = props.filterValues.map((filter) => (
     <FilterBtn
       value={filter}
       key={filter}
       isActive={filter === props.activeItem}
+      filerType={props.filerType}
       onClick={onFilterClick}
     />
   ));
